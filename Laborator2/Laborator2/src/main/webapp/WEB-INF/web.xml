@@ -1,0 +1,23 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!-- Define the prelude context parameter -->
+    <context-param>
+        <param-name>prelude</param-name>
+        <param-value>TEST-PRELUDE</param-value>
+    </context-param>
+
+    <!-- Define the coda context parameter -->
+    <context-param>
+        <param-name>coda</param-name>
+        <param-value>TEST-CODA</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>listener.AppInitListener</listener-class>
+    </listener>
+
+</web-app>
