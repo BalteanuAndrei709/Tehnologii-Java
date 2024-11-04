@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Add New Client</title>
+</h:head>
+<h:body>
+    <h:form id="clientForm">
+
+        <!-- Button to open dialog for adding a new client -->
+        <p:commandButton value="Add Client" icon="pi pi-plus" onclick="PF('clientDialog').show();" />
+
+        <!-- Dialog for adding a new client -->
+        <p:dialog header="New Client" widgetVar="clientDialog" modal="true" resizable="false" width="400px">
+            <h:panelGrid columns="2" styleClass="dialogForm">
+
+                <!-- Input for client's first name with validation message -->
+                <p:outputLabel for="firstName" value="First Name:" />
+                <p:inputText id="firstName" value="#{clientService.client.firstName}" required="true" requiredMessage="First Name is required" />
+                <p:message for="firstName" />
+
+                <!-- Input for client's last name with validation message -->
+                <p:outputLabel for="lastName" value="Last Name:" />
+                <p:inputText id="lastName" value="#{clientService.client.lastName}" required="true" requiredMessage="Last Name is required" />
+                <p:message for="lastName" />
+
+                <!-- Input for client's age with validation message -->
+                <p:outputLabel for="age" value="Age:" />
+                <p:inputText id="age" value="#{clientService.client.age}" required="true" requiredMessage="Age is required" />
+                <p:message for="age" />
+
+                <!-- SelectOneMenu for client status with validation message -->
+                <p:outputLabel for="status" value="Status:" />
+                <p:selectOneMenu id="status" value="#{clientService.client.status}" required="true" requiredMessage="Status is required">
+                    <f:selectItem itemLabel="Select Status" itemValue="" noSelectionOption="true" />
+                    <f:selectItem itemLabel="Active" itemValue="Active" />
+                    <f:selectItem itemLabel="Inactive" itemValue="Inactive" />
+                    <f:selectItem itemLabel="Pending" itemValue="Pending" />
+                </p:selectOneMenu>
+                <p:message for="status" />
+
+                <!-- Save and Cancel buttons -->
+                <p:commandButton value="Save" action="#{clientService.saveClient}" oncomplete="PF('clientDialog').hide();" update="clientForm" process="@form" />
+                <p:commandButton value="Cancel" onclick="PF('clientDialog').hide();" type="button" />
+            </h:panelGrid>
+        </p:dialog>
+
+    </h:form>
+</h:body>
+</html>
