@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+    <h:form>
+        <h2>Submit an Evaluation</h2>
+
+        <!-- Dropdown for selecting a teacher -->
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="teacher" value="Select Teacher: " />
+            <h:selectOneMenu id="teacher" value="#{studentBean.selectedTeacherId}">
+                <f:selectItems value="#{studentBean.teacherList}" var="teacher"
+                               itemValue="#{teacher.id}" itemLabel="#{teacher.fullname}" />
+            </h:selectOneMenu>
+            <h:message for="teacher" style="color: red;" />
+
+            <!-- Input for grade -->
+            <h:outputLabel for="grade" value="Grade: " />
+            <h:inputText id="grade" value="#{studentBean.grade}">
+                <f:validateLongRange minimum="0" maximum="10" />
+            </h:inputText>
+            <h:message for="grade" style="color: red;" />
+        </h:panelGrid>
+
+        <!-- Submit button -->
+        <h:commandButton value="Submit Evaluation" action="#{studentBean.submitEvaluation}" />
+    </h:form>
+</h:body>
+</html>

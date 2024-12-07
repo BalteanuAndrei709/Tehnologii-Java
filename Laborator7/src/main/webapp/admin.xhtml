@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+    <h:form>
+        <h2>All Evaluations</h2>
+        <h:dataTable value="#{adminBean.evaluations}" var="evaluation" border="1">
+            <h:column>
+                <f:facet name="header">Student</f:facet>
+                #{evaluation.student.fullname}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Teacher</f:facet>
+                #{evaluation.teacher.fullname}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Grade</f:facet>
+                #{evaluation.grade}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Registration Number</f:facet>
+                #{evaluation.registrationNumber}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Timestamp</f:facet>
+                #{evaluation.timestamp}
+            </h:column>
+        </h:dataTable>
+
+        <h2>Statistics</h2>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Total Evaluations: " />
+            <h:outputText value="#{adminBean.totalEvaluations}" />
+
+            <h:outputLabel value="Average Grade: " />
+            <h:outputText value="#{adminBean.averageGrade}" />
+
+            <h:outputLabel value="Highest Grade: " />
+            <h:outputText value="#{adminBean.highestGrade}" />
+
+            <h:outputLabel value="Lowest Grade: " />
+            <h:outputText value="#{adminBean.lowestGrade}" />
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>

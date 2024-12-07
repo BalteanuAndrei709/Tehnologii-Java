@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                                  http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+              version="2.3">
+
+    <!-- Navigation from add-client.xhtml to clients.xhtml after adding a client -->
+    <navigation-rule>
+        <from-view-id>/add-client.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>clients</from-outcome>
+            <to-view-id>/clients.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- Navigation from clients.xhtml to products.xhtml -->
+    <navigation-rule>
+        <from-view-id>/clients.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>products</from-outcome>
+            <to-view-id>/products.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- Navigation from products.xhtml back to clients.xhtml -->
+    <navigation-rule>
+        <from-view-id>/products.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>clients</from-outcome>
+            <to-view-id>/clients.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- Optional: Define outcomes for going back to the add-client.xhtml page -->
+    <navigation-rule>
+        <from-view-id>/clients.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>addClient</from-outcome>
+            <to-view-id>/add-client.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- Optional: Define outcomes for navigating from products.xhtml to add-client.xhtml -->
+    <navigation-rule>
+        <from-view-id>/products.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>addClient</from-outcome>
+            <to-view-id>/add-client.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>

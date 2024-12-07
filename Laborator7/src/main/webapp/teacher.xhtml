@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> <!-- This line binds the 'f' namespace -->
+<h:body>
+    <h:form>
+        <h2>Your Evaluations</h2>
+
+        <h:dataTable value="#{teacherBean.evaluations}" var="evaluation" border="1">
+            <h:column>
+                <f:facet name="header">Student</f:facet>
+                #{evaluation.student.fullname}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Grade</f:facet>
+                #{evaluation.grade}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Registration Number</f:facet>
+                #{evaluation.registrationNumber}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Timestamp</f:facet>
+                #{evaluation.timestamp}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+<cc:interface>
+    <!-- Component Attributes (if any) -->
+</cc:interface>
+<cc:implementation>
+    <h:panelGrid columns="2" styleClass="lastModifiedInfo">
+        <h:outputText value="Last Modified By:" />
+        <h:outputText value="#{dataBean.lastModifiedUser}" />
+
+        <h:outputText value="Last Modified On:" />
+        <h:outputText value="#{dataBean.lastModifiedTimestamp}" />
+    </h:panelGrid>
+</cc:implementation>
+</html>
