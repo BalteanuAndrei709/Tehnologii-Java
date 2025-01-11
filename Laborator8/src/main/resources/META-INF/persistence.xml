@@ -1,0 +1,22 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+  <persistence-unit name="EvaluationPU">
+    <!-- Reference the GlassFish JDBC Resource -->
+    <jta-data-source>jdbc/Laborator7</jta-data-source>
+
+    <!-- Specify the JPA entity classes -->
+    <class>entities.User</class>
+    <class>entities.Evaluation</class>
+    <class>entities.Course</class>
+    <class>entities.AcademicYear</class>
+
+    <properties>
+      <!-- Ensure schema is not recreated -->
+      <property name="jakarta.persistence.schema-generation.database.action" value="none" />
+
+      <!-- Optional properties for debugging -->
+      <property name="jakarta.persistence.logging.level" value="FINE" />
+      <property name="jakarta.persistence.jdbc.show-sql" value="true" />
+      <property name="jakarta.persistence.format-sql" value="true" />
+    </properties>
+  </persistence-unit>
+</persistence>
