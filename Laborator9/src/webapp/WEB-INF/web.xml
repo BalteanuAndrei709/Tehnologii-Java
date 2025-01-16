@@ -1,0 +1,58 @@
+<web-app xmlns="http://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://jakarta.ee/xml/ns/jakartaee http://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <!-- Define Login Mechanism -->
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>jdbcRealm</realm-name> <!-- Matches the realm configured in GlassFish -->
+    </login-config>
+
+    <!-- Security Constraints -->
+
+    <!-- Constraint for TEACHER role -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Teacher APIs</web-resource-name>
+            <url-pattern>/api/evaluations/byTeacher/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>teacher</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <!-- Constraint for ADMIN role -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Admin APIs</web-resource-name>
+            <url-pattern>/api/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <!-- Constraint for STUDENT role -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Student APIs</web-resource-name>
+            <url-pattern>/api/student/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>student</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <!-- Declare Security Roles -->
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <role-name>teacher</role-name>
+    </security-role>
+    <security-role>
+        <role-name>student</role-name>
+    </security-role>
+
+</web-app>
